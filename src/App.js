@@ -1,13 +1,19 @@
 import './App.css';
-import { useGetCoinsQuery } from './app/services/cryptoApi';
+// import { useGetCoinsQuery } from './app/services/cryptoApi';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Crypto from './page/Crypto/Crypto';
+import Home from './page/Home/Home';
 
 function App() {
-	const { data, isLoading, error } = useGetCoinsQuery();
-	console.log(data);
+	// const { data, isLoading, error } = useGetCoinsQuery();
+	// console.log(data);
 	return (
-		<div>
-			<h1>Hello</h1>
-		</div>
+		<BrowserRouter>
+			<Routes>
+				<Route path='/' element={<Home />} />
+				<Route path='/coins/:id' element={<Crypto />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 
